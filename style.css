@@ -1,0 +1,23 @@
+#topBar{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+}
+
+main {
+    height: 600px;
+}
+
+#cityBlock {
+    background-color: lightgray;
+    min-width: 250px;
+}
+
+.forcastCards {
+    background-color: blue; 
+    color: white;
+    margin: 8px;
+}
