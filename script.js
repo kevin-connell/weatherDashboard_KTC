@@ -210,14 +210,14 @@ function noDuplicates(x) {
 // convert speed from m/s to mph
 
 function convertSpeed(x) {
-    var mph = (x * 2.23694).toFixed(2)
+    var mph = Math.round(x * 2.23694)
     return mph
 }
 
 // convert Kelvin to Fahrenheit
 
 function convertTemp(x) {
-    var fDegree = (Math.round(((x - 273.15) * 1.80 + 32) * 100)) / 100
+    var fDegree = Math.round((x - 273.15) * 1.80 + 32)
     return fDegree
 }
 
