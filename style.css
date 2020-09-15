@@ -57,6 +57,11 @@ main {
     margin-top: 15px;
 }
 
+.activeCity{
+    border: #a0ccff solid 2px;
+    background-color: #eaf4ff;
+}
+
 .forecastCards {
     background-color: #157ffb; 
     color: white;

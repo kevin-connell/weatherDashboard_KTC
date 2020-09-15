@@ -168,6 +168,9 @@ function renderButtons() {
     for (let i = 0; i < searchList.length; i++) {
         newLi = $("<li>");
         newLi.addClass("list-group-item btn");
+        if (i == 0) {
+            newLi.addClass("activeCity");
+        }
         newLi.text(searchList[i]);
         $("#pastSearches").append(newLi);
     }
