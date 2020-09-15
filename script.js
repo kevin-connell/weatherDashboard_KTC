@@ -48,7 +48,13 @@ function newCity(x) {
                 method: "GET"
             }).then(function (response) {
                 $("#currentUV").text(response.daily[0].uvi);
-                // insert colorize
+                $("#currentUV").attr("class" , "uvBad")
+                if (response.daily[0].uvi < 7) {
+                    $("#currentUV").attr("class" , "uvModerate")
+                }
+                if (response.daily[0].uvi < 3) {
+                    $("#currentUV").attr("class" , "uvGood")
+                }
                 $("#forecast").empty();
                 for (let i = 1; i < 6; i++) {
                     var fDate = convertTime(response.daily[i].dt)

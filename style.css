@@ -36,6 +36,23 @@ main {
     margin-bottom: 10px;
 }
 
+#currentUV {
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.uvGood {
+    background-color: rgb(175, 255, 175);
+}
+
+.uvModerate{
+    background-color: rgb(255, 252, 175);
+}
+
+.uvBad {
+    background-color: rgb(255, 170, 170);
+}
+
 #pastSearches{
     margin-top: 15px;
 }
@@ -59,7 +76,7 @@ main {
     }
   }
 
-  .search {
+.search {
       max-width: 75%;
       margin-left: 16px;
   }
