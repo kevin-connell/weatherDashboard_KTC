@@ -9,9 +9,15 @@ $("#searchIt").on("click", function (event) {
     newCity(newSubmit)
 });
 
+$("#pastSearches").on("click", function (event){
+    event.preventDefault();
+    var pastCity = $(event.target).text()
+    newCity(pastCity)
+})
+
 function newCity(x) {
     x = x.trim()
-    queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + x + "&appid=e8387dd0e718edd5bc59d2897185f69c";
+    queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + x + "&appid=e8387dd0e718edd5bc59d2897185f69c";
 
     $.ajax({
         url: queryURL,
@@ -26,7 +32,7 @@ function newCity(x) {
             $("#currentName").text(response.name);
             makeButton(response.name)
             $("#currentDate").text(convertTime(response.dt));
-            $("#currentLogo").attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@4x.png");
+            $("#currentLogo").attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@4x.png");
             $("#currentLogo").attr("alt", response.weather[0].main);
             $("#currentTemp").text(convertTemp(response.main.temp));
             $("#currentHumidity").text(response.main.humidity);
@@ -48,7 +54,7 @@ function newCity(x) {
                     var fDate = convertTime(response.daily[i].dt)
                     var fTemp = convertTemp(response.daily[i].temp.day)
                     var fHumidity = response.daily[i].humidity
-                    var fIcon = "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png"
+                    var fIcon = "https://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png"
                     var fAlt = response.daily[i].weather[0].main
 
                     currentDiv = $("<div>")
@@ -120,16 +126,3 @@ function convertTime(x) {
     var fixedDate = (myDate.getMonth() + 1) + "/" + myDate.getDate() + "/" + myDate.getFullYear()
     return fixedDate
 }
-
-
-// $("#add-movie").on("click", function (event) {
-//     event.preventDefault();
-// //     // This line of code will grab the input from the textbox
-// //     var movie = $("#movie-input").val().trim();
-
-// //     // The movie from the textbox is then added to our array
-// //     movies.push(movie);
-
-// //     // Calling renderButtons which handles the processing of our movie array
-// //     renderButtons();
-// // });
