@@ -15,7 +15,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <script src="https://use.fontawesome.com/f1d5da97da.js"></script>
     <link rel="stylesheet" href="style.css">
     <title>Weather Dashboard</title>
@@ -30,51 +29,46 @@
         <div id="cityBlock" class="col-md-4">
             <h4>Search for a City:</h4>
             <form class="row">
-                <input class="form-control search" type="search" placeholder="City" aria-label="Search">
-                <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
+                <input id="inputBox" class="form-control search" type="search" placeholder="City" aria-label="Search">
+                <button id="searchIt" class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button>
             </form>
             <ul id="pastSearches" class="list-group">
-                <li class="list-group-item btn">Boston</li>
-                <li class="list-group-item btn">New York</li>
-                <li class="list-group-item btn">Philadelphia</li>
-                <li class="list-group-item btn">Boston</li>
-                <li class="list-group-item btn">New York</li>
-                <li class="list-group-item btn">Philadelphia</li>
+                <!-- past searches -->
             </ul>
         </div>
         <div id="weatherBlock" class="col-md-8 mx-auto">
             <div id="currentWeather" class="col">
-                <h1>City Name</h1>
-                <h3>Date</h3>
-                <p>Temperature: &deg;F</p>
-                <p>Humidity: %</p>
-                <p>Wind Speed: MPH</p>
-                <p>UV Index: <span>RED</span></p>
+                <h1 id="currentName">City Name</h1>
+                <h3 id="currentDate">Date</h3>
+                <img id="currentLogo">
+                <p>Temperature: <span id="currentTemp"></span>&deg;F<br>Humidity: <span id="currentHumidity"></span>%<br>Wind Speed: <span id="currentWind"></span>MPH<br>UV Index: <span id="currentUV">RED</span></p>
             </div>
-            <div id="forcast" class="row d-flex justify-content-around">
-                <div class="col forcastCards">
+            <div id="forecast" class="row d-flex justify-content-around">
+                <div id="1" class="col forecastCards">
                     <h5>date/year</h5>
                     <p>Temp: &deg;F<br>Humidity: %</p>
                 </div>
-                <div class="col forcastCards">
+                <div id="2" class="col forecastCards">
                     <h5>date/year</h5>
                     <p>Temp: &deg;F<br>Humidity: %</p>
                 </div>
-                <div class="col forcastCards">
+                <div id="3" class="col forecastCards">
                     <h5>date/year</h5>
                     <p>Temp: &deg;F<br>Humidity: %</p>
                 </div>
-                <div class="col forcastCards">
+                <div id="4" class="col forecastCards">
                     <h5>date/year</h5>
                     <p>Temp: &deg;F<br>Humidity: %</p>
                 </div>
-                <div class="col forcastCards">
+                <div id="5" class="col forecastCards">
                     <h5>date/year</h5>
                     <p>Temp: &deg;F<br>Humidity: %</p>
                 </div>
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
