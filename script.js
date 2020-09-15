@@ -9,7 +9,7 @@ $("#searchIt").on("click", function (event) {
     newCity(newSubmit)
 });
 
-$("#pastSearches").on("click", function (event){
+$("#pastSearches").on("click", function (event) {
     event.preventDefault();
     var pastCity = $(event.target).text()
     newCity(pastCity)
@@ -48,12 +48,12 @@ function newCity(x) {
                 method: "GET"
             }).then(function (response) {
                 $("#currentUV").text(response.daily[0].uvi);
-                $("#currentUV").attr("class" , "uvBad")
+                $("#currentUV").attr("class", "uvBad")
                 if (response.daily[0].uvi < 7) {
-                    $("#currentUV").attr("class" , "uvModerate")
+                    $("#currentUV").attr("class", "uvModerate")
                 }
                 if (response.daily[0].uvi < 3) {
-                    $("#currentUV").attr("class" , "uvGood")
+                    $("#currentUV").attr("class", "uvGood")
                 }
                 $("#forecast").empty();
                 for (let i = 1; i < 6; i++) {
@@ -65,8 +65,8 @@ function newCity(x) {
 
                     currentDiv = $("<div>")
                     currentDiv.addClass("col forecastCards")
-                    currentDiv.attr("id" , "FC" + i)
-                    currentDiv.css("opacity" , "0");
+                    currentDiv.attr("id", "FC" + i)
+                    currentDiv.css("opacity", "0");
 
                     var forecastH = $("<h5>")
                     forecastH.text(fDate)
@@ -84,11 +84,19 @@ function newCity(x) {
                     $("#forecast").append(currentDiv)
                 }
                 timerDisplay()
+                $("#FC5").css("max-width", $("#FC1").outerWidth());
+                $("#FC4").css("max-width", $("#FC1").outerWidth());
+                $("#FC3").css("max-width", $("#FC1").outerWidth());
 
             });
         }
     });
 }
+$(window).resize(function () {
+    $("#FC5").css("max-width", $("#FC1").outerWidth());
+    $("#FC4").css("max-width", $("#FC1").outerWidth());
+    $("#FC3").css("max-width", $("#FC1").outerWidth());
+});
 
 function timerDisplay() {
     var indexN = 0
@@ -124,13 +132,13 @@ function makeButton(x) {
 }
 function noDuplicates(x) {
     let newArray = {};
-    x.forEach(function(i) {
-      if(!newArray[i]) {
-        newArray[i] = true;
-      }
+    x.forEach(function (i) {
+        if (!newArray[i]) {
+            newArray[i] = true;
+        }
     });
     return Object.keys(newArray);
-  }
+}
 function doNothing() {
     console.log("I waited a sec")
 }
