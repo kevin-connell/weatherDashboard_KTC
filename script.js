@@ -26,6 +26,8 @@ function newCity(x) {
             $("#currentName").text(response.name);
             makeButton(response.name)
             $("#currentDate").text(convertTime(response.dt));
+            $("#currentLogo").attr("src", "http://openweathermap.org/img/wn/" + response.weather[0].icon + "@4x.png");
+            $("#currentLogo").attr("alt", response.weather[0].main);
             $("#currentTemp").text(convertTemp(response.main.temp));
             $("#currentHumidity").text(response.main.humidity);
             $("#currentWind").text(convertSpeed(response.wind.speed));
@@ -46,6 +48,8 @@ function newCity(x) {
                     var fDate = convertTime(response.daily[i].dt)
                     var fTemp = convertTemp(response.daily[i].temp.day)
                     var fHumidity = response.daily[i].humidity
+                    var fIcon = "http://openweathermap.org/img/wn/" + response.daily[i].weather[0].icon + "@2x.png"
+                    var fAlt = response.daily[i].weather[0].main
 
                     currentDiv = $("<div>")
                     currentDiv.addClass("col forecastCards")
@@ -53,6 +57,11 @@ function newCity(x) {
                     var forecastH = $("<h5>")
                     forecastH.text(fDate)
                     currentDiv.append(forecastH)
+
+                    var forecastImg = $("<img>")
+                    forecastImg.attr("src", fIcon)
+                    forecastImg.attr("alt", fAlt)
+                    currentDiv.append(forecastImg)
 
                     var forecastP = $("<p>")
                     forecastP.html("Temp: " + fTemp + "&deg;F<br>Humidity: " + fHumidity + "%")
