@@ -59,6 +59,8 @@ function newCity(x) {
 
                     currentDiv = $("<div>")
                     currentDiv.addClass("col forecastCards")
+                    currentDiv.attr("id" , "FC" + i)
+                    currentDiv.css("opacity" , "0");
 
                     var forecastH = $("<h5>")
                     forecastH.text(fDate)
@@ -74,14 +76,27 @@ function newCity(x) {
                     currentDiv.append(forecastP)
 
                     $("#forecast").append(currentDiv)
-
-                    setTimeout(doNothing, 1000)
                 }
+                timerDisplay()
 
             });
         }
     });
 }
+
+function timerDisplay() {
+    var indexN = 0
+    var timerInterval = setInterval(function () {
+        indexN++;
+        $("#FC" + indexN).fadeTo(500, 1);
+
+        if (indexN === 5) {
+            clearInterval(timerInterval);
+        }
+
+    }, 100);
+}
+
 function renderButtons() {
     $("#pastSearches").empty();
     console.log("clear")
